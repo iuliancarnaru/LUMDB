@@ -2,6 +2,18 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    console.log('constructor');
+  }
+
+  componentWillMount() {
+    console.log('will mount');
+  }
+
+  componentDidMount() {
+    console.log('mounted');
+  }
 
   state = {
     visibility: false
