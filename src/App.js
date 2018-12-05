@@ -4,26 +4,30 @@ import logo from './logo.svg';
 
 import Movie from './Movie';
 
-const movies = [
-  {
-    id: 1,
-    title: 'Star Wars',
-    description: 'Star Wars is an American epic space opera franchise, created by George Lucas and centered around a film series that began with the eponymous 1977 movie. '
-  }, {
-    id: 2,
-    title: 'Spider Man'
-  }, {
-    id: 3,
-    title: 'Fantasctic 4'
-  }, {
-    id: 4,
-    title: 'Black Star'
-  }
-];
-
 
 class App extends Component {
+  state = {
+    movies: []
+  }
+
+  async componentDidMount() {
+    try {
+      const res = await fetch('https://api.themoviedb.org/3/discover/movie?api_key=6e63fd877ba081fbe093430a9f9065f1&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1');
+      const movies = await res.json();
+
+      this.setState(() => ({
+        movies: movies.results
+      }))
+
+
+    } catch (e) {
+        console.log(e);
+        
+    }
+  }
+
   render() {
+
     return (
       <div className="App">
 
@@ -31,7 +35,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
 
-        {movies.map(movie => <Movie key={movie.id} movie={movie} description={movie.description}/>)}
+        {this.state.movies.map(movie => <Movie key={movie.id} movie={movie} />)}
 
       </div>
     );
