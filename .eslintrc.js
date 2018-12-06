@@ -5,8 +5,8 @@ module.exports = {
         "es6": true
     },
     "settings": {
-          "ecmascript": 6,
-          "jsx": true
+        "ecmascript": 6,
+        "jsx": true
     },
     "parserOptions": {
         "ecmaVersion": 2018,
@@ -22,8 +22,11 @@ module.exports = {
     ],
     "extends": "airbnb",
     "rules": {
-      "react/jsx-filename-extension": 0,
-      "function-paren-newline": 0,
-      "comma-dangle": ["error", "never"]
+        "react/jsx-filename-extension": 0,
+        "function-paren-newline": 0,
+        "comma-dangle": ["error", "never"],
+        "linebreak-style": 0,
+        "global-require": 0,
+        "eslint linebreak-style": [0, "error", "windows"]
     }
-  };
+};
