@@ -17,17 +17,14 @@ class App extends Component {
 
       this.setState(() => ({
         movies: movies.results
-      }))
-
-
+      }));
     } catch (e) {
-        console.log(e);
-        
+      console.log(e); // eslint-disable-line no-console
     }
   }
 
   render() {
-
+    const { movies } = this.state;
     return (
       <div className="App">
 
@@ -35,7 +32,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
 
-        {this.state.movies.map(movie => <Movie key={movie.id} movie={movie} />)}
+        {movies.map(movie => <Movie key={movie.id} movie={movie} />)}
 
       </div>
     );
