@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router, Route, Switch, Link
 } from 'react-router-dom';
@@ -6,6 +6,7 @@ import './App.css';
 import logo from './logo.svg';
 
 import MoviesList from './MoviesList';
+import MovieDetails from './MovieDetails';
 
 
 const App = () => (
@@ -18,16 +19,10 @@ const App = () => (
       </header>
       <Switch>
         <Route exact path="/" component={MoviesList} />
-        <Route path="/:id" component={Test} />
+        <Route path="/:id" component={MovieDetails} />
       </Switch>
     </div>
   </Router>
 );
 
 export default App;
-
-const Test = ({ match }) => (
-  <div>
-    <h1>{match.params.id}</h1>
-  </div>
-);
