@@ -6,13 +6,13 @@ import { Provider } from 'react-redux';
 import './App.css';
 import { createStore } from 'redux';
 import logo from './logo.svg';
+import rootReducer from './rootReducer';
 
 import MoviesList from './MoviesList';
 import MovieDetails from './MovieDetails';
 
 
-const hello = () => ('hello');
-const store = createStore(hello);
+const store = createStore(rootReducer);
 
 const App = () => (
   <Provider store={store}>
