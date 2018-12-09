@@ -5,6 +5,7 @@ import {
 import { Provider } from 'react-redux';
 import './App.css';
 import { createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import logo from './logo.svg';
 import rootReducer from './rootReducer';
 
@@ -12,7 +13,11 @@ import MoviesList from './MoviesList';
 import MovieDetails from './MovieDetails';
 
 
-const store = createStore(rootReducer);
+const store = createStore(
+  rootReducer,
+  {},
+  composeWithDevTools()
+);
 
 const App = () => (
   <Provider store={store}>
