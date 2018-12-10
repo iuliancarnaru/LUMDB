@@ -4,8 +4,9 @@ import {
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import './App.css';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import logger from 'redux-logger';
 import logo from './logo.svg';
 import rootReducer from './rootReducer';
 import Toggle from './Toggle';
@@ -13,11 +14,12 @@ import Toggle from './Toggle';
 import MoviesList from './MoviesList';
 import MovieDetails from './MovieDetails';
 
+const middleware = [logger];
 
 const store = createStore(
   rootReducer,
   {},
-  composeWithDevTools()
+  composeWithDevTools(applyMiddleware(...middleware))
 );
 
 const App = () => (
