@@ -7,6 +7,9 @@ import './App.css';
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
+
+
 import logo from './logo.svg';
 import rootReducer from './rootReducer';
 import Toggle from './Toggle';
@@ -14,7 +17,7 @@ import Toggle from './Toggle';
 import MoviesList from './MoviesList';
 import MovieDetails from './MovieDetails';
 
-const middleware = [logger];
+const middleware = [logger, thunk];
 
 const store = createStore(
   rootReducer,
