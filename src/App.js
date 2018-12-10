@@ -12,10 +12,10 @@ import thunk from 'redux-thunk';
 
 import logo from './logo.svg';
 import rootReducer from './rootReducer';
-import Toggle from './Toggle';
 
-import MoviesList from './MoviesList';
-import MovieDetails from './MovieDetails';
+import Toggle from './toggle/Toggle';
+import MoviesList from './movies/MoviesList';
+import MovieDetails from './movies/MovieDetails';
 
 const middleware = [logger, thunk];
 
